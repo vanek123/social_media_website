@@ -1,8 +1,18 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@300&family=Open+Sans:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+.logo {
+    height: 25px; 
+    border-right: 1px solid #333;
+}
+
+.profile-image {
+    height: 150px;
+    width: 150px;
+}
