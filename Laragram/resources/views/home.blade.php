@@ -9,16 +9,15 @@
             </div> 
         </div>
         <div class="col-9 pt-5">
-            <div><h1>Laravel</h1></div>
+            <div><h1>{{ $user->username }}  </h1></div>
             <div class="d-flex">
                 <div class=""><strong>153</strong> posts</div>
                 <div class="ps-5"><strong>23k</strong> followers</div>
                 <div class="ps-5"><strong>212</strong> following</div>
             </div>
-            <div class="pt-4 fw-bold">laravel.com</div>
-            <div>We're a global community of millions of people learning to code together.
-                LearnToCodeRPG: https://www.freecodecamp.org/news/learn-to-code-rpg/</div>
-                <div><a href="#">www.laravel.com</a></div>
+            <div class="pt-4 fw-bold">{{ $user->profile->title }}</div>
+            <div>{{ $user->profile->description }}</div>
+                <div><a href="#">{{ $user->profile->url }}</a></div>
         </div>
     </div>
 
