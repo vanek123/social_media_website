@@ -23,8 +23,13 @@ class PostsController extends Controller
             'media' => ['required', 'mimetypes:image/jpeg,image/png,video/mp4,video/mpeg,video/quicktime'],
         ]);
 
-        auth()->user()->posts()->create($data);
+        $imagePath = request('media')->store('uploads', 'public');
 
-        dd(request()->all());
+        auth()->user()->posts()->create([
+            'caption' => $data['caption'],
+            'media' => $imagePath,
+        ]);
+
+        return redirect('/profile/'. auth()->user()->id);
     }
 }
