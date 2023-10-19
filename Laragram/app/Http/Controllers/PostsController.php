@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
@@ -23,13 +24,21 @@ class PostsController extends Controller
             'media' => ['required', 'mimetypes:image/jpeg,image/png,video/mp4,video/mpeg,video/quicktime'],
         ]);
 
-        $imagePath = request('media')->store('uploads', 'public');
+        $mediaPath = request('media')->store('uploads', 'public');
 
-        auth()->user()->posts()->create([
+        $media = Image::make(public_path("storage/{$mediaPath}"))->fit(1200, 1200);
+        $media->save();
+
+        auth()->user()->User::posts()->create([
             'caption' => $data['caption'],
-            'media' => $imagePath,
+            'media' => $mediaPath,
         ]);
 
         return redirect('/profile/'. auth()->user()->id);
+    }
+
+    public function show($post) 
+    {
+        dd($post);
     }
 }
