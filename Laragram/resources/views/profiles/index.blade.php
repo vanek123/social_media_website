@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-3 p-5">
             <div class="d-flex justify-content-center align-items-center">
-                <img src="https://twtv3.ams3.digitaloceanspaces.com/posts/laravel-developer-tips.png" class="profile-image rounded-circle">
+                <img src="{{ $user->profile->profileImage() }}" class="profile-image rounded-circle">
             </div> 
         </div>
         <div class="col-9 pt-5">
@@ -23,9 +23,9 @@
                 <div class="ps-5"><strong>23k</strong> followers</div>
                 <div class="ps-5"><strong>212</strong> following</div>
             </div>
-            <div class="pt-4 fw-bold">{{ $user->profile->title ?? '' }}</div>
-            <div>{{ $user->profile->description ?? '' }}</div>
-                <div><a href="#">{{ $user->profile->url ?? '' }}</a></div>
+            <div class="pt-4 fw-bold">{{ $user->profile->title }}</div>
+            <div>{{ $user->profile->description }}</div>
+                <div><a href="#">{{ $user->profile->url }}</a></div>
         </div>
     </div>
 

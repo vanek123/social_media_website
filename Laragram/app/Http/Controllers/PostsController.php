@@ -29,7 +29,7 @@ class PostsController extends Controller
         $media = Image::make(public_path("storage/{$mediaPath}"))->fit(1200, 1200);
         $media->save();
 
-        auth()->user()->User::posts()->create([
+        auth()->user()->posts()->create([
             'caption' => $data['caption'],
             'media' => $mediaPath,
         ]);

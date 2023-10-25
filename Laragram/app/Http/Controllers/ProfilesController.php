@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
 {
@@ -27,10 +28,23 @@ class ProfilesController extends Controller
             'title' => 'required',
             'description' => 'required',
             'url' => 'url',
-            'media' => '',
+            'media' => 'mimetypes:image/jpeg,image/png',
         ]);
 
-        auth()->user()->profile->update($data);
+        if (request('media')) 
+        {
+            $mediaPath = request('media')->store('profile', 'public');
+
+            $media = Image::make(public_path("storage/{$mediaPath}"))->fit(1000, 1000);
+            $media->save();
+
+            $mediaArray = ['media' => $mediaPath];
+        }
+        
+        auth()->user()->profile->update(array_merge(
+            $data,
+            $mediaArray ?? [],
+        ));
 
         return redirect("/profile/{$user->id}");
     }
