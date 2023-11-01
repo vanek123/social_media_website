@@ -1,12 +1,12 @@
 <template>
     <div class="container">
-        <button class="btn btn-primary ms-4" @click="followUser" v-if="userIsNotLoggedInUser" v-text="buttonText"></button>
+        <button class="btn btn-primary ms-4" @click="followUser" v-text="buttonText"></button>
     </div>
 </template>
 
 <script>
     export default {
-        props: ['userId', 'follows', 'userIsNotLoggedInUser'],
+        props: ['userId', 'follows'],
 
         mounted() {
             console.log('Component mounted.')

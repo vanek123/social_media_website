@@ -17,9 +17,9 @@
                 <div class="d-flex align-items-center pb-3">
                     <div class="h4">{{ $user->username }}</div>
                     
-                    
-                    <follow-button user-id="{{ $user->id }}" follows="{{ $follows }} " :user-is-not-logged-in-user="{{ $isNotLoggedInUser }}"></follow-button>
-                    
+                    @if(Auth::check() && Auth::user()->id !== $user->id)
+                        <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button>
+                    @endif
                 </div>
 
                 @can('update', $user->profile)
