@@ -21,4 +21,13 @@ class CommentsController extends Controller
 
         return redirect()->route('posts.show', $post->id)->with('success', "Comment posted successfully!");
     }
+
+    public function destroy(Post $post, $id)
+    {
+        $comment = Comment::where('id', $id)->firstOrFail();
+
+        $comment->delete();
+
+        return redirect()->route("posts.show", $post)->with("success", "Comment deleted successfully!");
+    }
 }

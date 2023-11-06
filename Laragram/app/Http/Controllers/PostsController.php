@@ -48,8 +48,8 @@ class PostsController extends Controller
         return redirect('/profile/'. auth()->user()->id);
     }
 
-    public function show(\App\Models\Post $post) 
+    public function show(\App\Models\Post $post, User $user) 
     {
-        return view('posts.show', compact('post'));
+        return view('posts.show', compact('post', 'user'));
     }
 }

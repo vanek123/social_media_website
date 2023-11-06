@@ -23,6 +23,7 @@ Route::get('/email', function () {
 });
 
 Route::post('p/{post}/comments', 'App\Http\Controllers\CommentsController@store')->name('posts.comments.store');
+Route::delete('p/{post}/comments/{id}', 'App\Http\Controllers\CommentsController@destroy')->name('posts.comments.destroy');
 
 Route::post('follow/{user}', 'App\Http\Controllers\FollowsController@store');
 

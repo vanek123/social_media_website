@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="d-flex justify-content-center">
+<div class="container vh-100">
+    <div class="d-flex justify-content-center align-items-center h-100">
         <form action="/profile/{{ $user->id }}" class="shadow p-3 mb-5 bg-white rounded border border-light p-5" enctype="multipart/form-data" method="POST">
             @csrf
             @method('PATCH')
