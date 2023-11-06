@@ -10,8 +10,8 @@
             </a>
         </div>
     </div>
-    <div class="row pt-2 pb-4"></div>
-        <div class="col-6 offset-3 py-4">
+    <div class="row pt-2 pb-4">
+        <div class="col-6 offset-3 py-2">
 
             <hr>
 
@@ -22,7 +22,25 @@
                     </a> 
                 </span> {{ $post->caption }}
             </p>
+
+            <hr>
+
+            @foreach($post->comments as $comment)
+            <p>    
+                <span class="fw-bold">
+                    <a href="/profile/{{ $post->user->id }}">
+                        <span class="text-dark">{{ $comment->user->username}}</span>
+                   </a> 
+                </span>
+                    {{ $comment->comment }}    
+            </p>
+            @endforeach
         </div>
+    </div>
+    
+        
+
+        
     @endforeach
 
     <div class="row">
