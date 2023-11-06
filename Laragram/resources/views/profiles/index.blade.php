@@ -17,14 +17,19 @@
                         <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button>
                     @endif
                 </div>
-
-                @can('update', $user->profile)
-                    <a href="/p/create">Add New Post</a>
-                @endcan
+                
+                    @can('update', $user->profile)
+                        <a href="/p/create"><button class="btn btn-primary">Add New Post</button></a>
+                    @endcan    
+                    
             </div>
-            @can('update', $user->profile)
-                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
-            @endcan
+                <div class="pb-3">
+                    @can('update', $user->profile)
+                        <a href="/profile/{{ $user->id }}/edit"><button class="btn btn-primary">Edit Profile</button></a>
+                    @endcan
+                </div>
+                    
+            
             <div class="d-flex">
                 <div class=""><strong>{{ $postCount }}</strong> posts</div>
                 <div class="ps-5"><strong>{{ $followersCount }}</strong> followers</div>
@@ -40,7 +45,7 @@
         @foreach($user->posts as $post)
         <div class="col-4 pb-4">
             <a href="/p/{{ $post->id }}">
-                <img src="/storage/{{ $post->media }}" class="w-100">
+                <img src="/storage/{{ $post->media }}" class="w-100 shadow-lg">
             </a>
         </div>
         @endforeach

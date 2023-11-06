@@ -50,12 +50,20 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a href="/" class="nav-link pe-5">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link pe-5">Chat</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a href="{{ route('profile.show', ['user' => auth()->user()]) }}" class="dropdown-item">My Profile</a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
