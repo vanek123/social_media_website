@@ -1,7 +1,3 @@
-@php
-    $isNotLoggedInUser = (auth()->check() && auth()->user()->id !== $user->id);
-@endphp
-
 @extends('layouts.app')
 
 @section('content')
