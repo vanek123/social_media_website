@@ -37,7 +37,7 @@
             
             @foreach($post->comments as $comment)
                 <div class="d-flex align-items-center">
-                    <small class="fs-6 fw-light text-muted">{{ $comment->created_at }}</small>
+                    <small class="fs-6 fw-light text-muted">{{ $comment->created_at->format('Y-m-d H:i:s') }}</small>
                     @if(Auth::check() && Auth::user()->id == $comment->user->id)
                         <form action="{{ route("posts.comments.destroy", [$post, $comment->id]) }}" method="post">
                             @csrf
@@ -60,14 +60,21 @@
                 @csrf
                 <div class="form-group mt-auto">
                     <textarea name="comment" class="form-control mb-2" placeholder="Leave a comment"></textarea>
-                    <button type="submit" class="btn btn-primary ">Add Comment</button>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Add Comment</button>
+                    </div>
                 </div>
-                
             </form>
             
-        </div>
+            @if(Auth::check() && Auth::user()->id == $post->user->id)
+                <form action="{{ route("posts.destroy", $post->id) }}" method="post" class="mt-2">
+                    @csrf
+                    @method('delete')
+                    <button class="btn btn-danger">Delete Post</button>
+                </form>
+            @endif
 
-            
+        </div>   
 
     </div>
 </div>

@@ -48,6 +48,16 @@ class PostsController extends Controller
         return redirect('/profile/'. auth()->user()->id);
     }
 
+    public function destroy($id)
+    {
+        $post = Post::where('id', $id)->firstOrFail();
+        $userId = $post->user->id;
+
+        $post->delete();
+
+        return redirect()->route("profile.show", ['user' => $userId])->with("success", "Post deleted successfully!");
+    }
+
     public function show(\App\Models\Post $post, User $user) 
     {
         return view('posts.show', compact('post', 'user'));

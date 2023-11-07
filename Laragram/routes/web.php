@@ -27,10 +27,11 @@ Route::delete('p/{post}/comments/{id}', 'App\Http\Controllers\CommentsController
 
 Route::post('follow/{user}', 'App\Http\Controllers\FollowsController@store');
 
-Route::get('/', 'App\Http\Controllers\PostsController@index');
+Route::get('/', 'App\Http\Controllers\PostsController@index')->name('posts.index');
 Route::get('/p/create', 'App\Http\Controllers\PostsController@create');
 Route::post('/p', 'App\Http\Controllers\PostsController@store')->name('posts.store');
 Route::get('/p/{post}', 'App\Http\Controllers\PostsController@show')->name('posts.show');
+Route::delete('/p/{post}', 'App\Http\Controllers\PostsController@destroy')->name('posts.destroy');
 
 Route::get('/profile/{user}', 'App\Http\Controllers\ProfilesController@index')->name('profile.show');
 Route::get('/profile/{user}/edit', 'App\Http\Controllers\ProfilesController@edit')->name('profile.edit');
