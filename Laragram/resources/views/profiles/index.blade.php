@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-3 p-5">
             <div class="d-flex justify-content-center align-items-center">
-                <img src="{{ $user->profile->profileImage() }}" class="profile-image rounded-circle">
+                <img src="{{ $user->profile->profileImage() }}" class="profile-image rounded-circle img-fluid">
             </div> 
         </div>
         <div class="col-9 pt-5">

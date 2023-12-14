@@ -12,9 +12,11 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 </head>
 <body>
     <div id="app">
@@ -50,11 +52,15 @@
                                 </li>
                             @endif
                         @else
+                            
                             <li class="nav-item">
                                 <a href="/" class="nav-link pe-5">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/chat" class="nav-link pe-5">Chat</a>
+                                <a href="/search" class="nav-link pe-5">Search</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/chat" class="nav-link pe-5">Messages</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
