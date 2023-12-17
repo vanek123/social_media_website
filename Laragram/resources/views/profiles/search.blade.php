@@ -20,7 +20,7 @@
 
     <script defer>
         $(document).ready(function() {
-            
+            var defaultSearchMessage = "Start typing to find the user.";
             $('#search').on('keyup', function(){
                 var query = $(this).val();
 
