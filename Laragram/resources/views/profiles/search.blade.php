@@ -11,6 +11,7 @@
         <div class="form-group">
             <h4>Type by Username</h4>
             <input type="search" name="search" id="search" placeholder="Search the user..." class="form-control">
+            <p id="search-message" class="search-message">Start typing to search for users.</p>
         </div>
 
         <div id="search-list"></div>
@@ -22,6 +23,13 @@
             
             $('#search').on('keyup', function(){
                 var query = $(this).val();
+
+                if (query.length > 0) {
+                    $('#search-message').addClass('search-message-hidden');
+                } else {
+                    $('#search-message').removeClass('search-message-hidden');
+                    $('#search-message').text(defaultSearchMessage);
+                }
 
                 $.ajax({
                     url: "find",
