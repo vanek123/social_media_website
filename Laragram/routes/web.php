@@ -34,7 +34,7 @@ Route::get('/p/{post}', 'App\Http\Controllers\PostsController@show')->name('post
 Route::delete('/p/{post}', 'App\Http\Controllers\PostsController@destroy')->name('posts.destroy');
 
 Route::get('/search', 'App\Http\Controllers\ProfilesController@search')->name('profile.search');
-Route::get('/find', 'App\Http\Controllers\ProfilesController@find')->name('profile.find');
+Route::get('/search/{query}', 'App\Http\Controllers\ProfilesController@find')->name('profile.find');
 Route::get('/profile/{user}', 'App\Http\Controllers\ProfilesController@index')->name('profile.show');
 Route::get('/profile/{user}/edit', 'App\Http\Controllers\ProfilesController@edit')->name('profile.edit');
 Route::patch('/profile/{user}', 'App\Http\Controllers\ProfilesController@update')->name('profile.update');

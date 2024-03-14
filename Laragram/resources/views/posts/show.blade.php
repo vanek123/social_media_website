@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-8 p-0">
-            <img src="/storage/{{ $post->media }}" class="w-100">
+            <img src="/storage/{{ $post->media }}" class="object-fit-cover w-100">
         </div>
         <div class="col-4 d-flex flex-column shadow p-3 rounded-right border-light">
             <div class="d-flex align-items-center">
@@ -42,7 +42,7 @@
                         <form action="{{ route("posts.comments.destroy", [$post, $comment->id]) }}" method="post">
                             @csrf
                             @method("delete")
-                                <button class="btn btn-danger btn-sm p-0 ms-1">Delete</button>
+                                <button class="btn btn-danger btn-sm p-1 ms-1">Delete</button>
                         </form>
                     @endif
                 </div>

@@ -13,7 +13,7 @@ class Profile extends Model
 
     public function profileImage()
     {
-        $mediaPath = ($this->media) ? $this->media : 'profile/0AYsODwWnuTnJ9n2EtmJpbTXFHg8PQ7FOd9rKX57.jpg';
+        $mediaPath = ($this->media) ? $this->media : 'profile/Wuslb5XmCz5F1cHQMHhHAlqEKXEhlJta1Uv0xDze.jpg';
         return '/storage/' . $mediaPath;
     }
 

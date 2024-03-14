@@ -71,35 +71,22 @@ class ProfilesController extends Controller
     }
 
     public function search() 
-{
-    return view('profiles.search');
-}
-
-    public function find(Request $request)
     {
-        if($request->ajax()) {
-            $data = User::where('username', 'LIKE', '%' .$request->search. '%')->get();
-
-            $output = '';
-
-            if(count($data) > 0) {
-                $output = 
-                '<div>';
-                
-                foreach($data as $row) {
-                    $output .= '<div><a href="' . route('profile.show', ['user' => $row->id]) . '">' . $row->username . '</a></div>';
-                }
-                $output.= '
-                </div>';
-            } else {
-                $output .= "No Results Found";
-            }
-
-            return $output;
-
-        }
+        return view('profiles.search');
     }
 
+    public function find($query) 
+    {
+        $users = User::where('username', 'like', "%$query%")->with('profile')->get();
+        $usersWithProfileImage = $users->map(function ($user) {
+            return [
+                'id' => $user->id,
+                'username' => $user->username,
+                'media' => $user->profile->profileImage(),
+            ];
+        });
+        return response()->json($usersWithProfileImage);
+    }
 
 }
 
