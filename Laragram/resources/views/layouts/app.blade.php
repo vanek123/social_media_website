@@ -90,6 +90,7 @@
         <main class="py-4 bg-light">
             @yield('content')
         </main>
+        
     </div>
 </body>
 </html>
