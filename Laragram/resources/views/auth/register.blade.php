@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+<!--<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -87,5 +88,73 @@
             </div>
         </div>
     </div>
+</div>-->
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-lg-4 bg-white m-auto rounded-top" style="border-top: 3px solid #0d6efd;">
+            <h2 class="text-center pt-3">{{ __('Register') }}</h2>
+            <p class="text-center text-muted lead mb-3">It's free and takes a minute</p>
+
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autocomplete="name" autofocus placeholder="Name">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}"  autocomplete="username" placeholder="Username">
+
+                    @error('username')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email" placeholder="Email Address">
+
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password" placeholder="Password">
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation"  autocomplete="new-password" placeholder="Confirm Password">
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">{{ __('Register') }}</button>
+                    <p class="text-cente text-muted mt-2">
+                        When you register by clicking register button, you agree to our 
+                        <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>
+                    </p>
+                </div>
+                <p class="text-center">
+                    Already have an account? <a href="#">Login Here</a>
+                </p>
+            </form>
+        </div>  
+    </div>
 </div>
+
 @endsection

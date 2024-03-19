@@ -13,6 +13,7 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/all.css">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -20,10 +21,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm bg-primary">
             <div class="container">
-                <a class="navbar-brand d-flex" href="{{ url('/') }}">
-                    <div><img src="/svg/freeCodeCampLogo.svg" class="logo pe-3"></div>
+                <a class="navbar-brand d-flex text-light" href="{{ url('/') }}">
+                    <!--<div><img src="/svg/freeCodeCampLogo.svg" class="logo pe-3"></div>-->
                     <div class="ps-3" style="padding-top: 2px">Laragram</div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -42,28 +43,28 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             
                             <li class="nav-item">
-                                <a href="/" class="nav-link pe-5">Home</a>
+                                <a href="/" class="nav-link text-light">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/search" class="nav-link pe-5">Search</a>
+                                <a href="/search" class="nav-link text-light">Search</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/chat" class="nav-link pe-5">Messages</a>
+                                <a href="/chat" class="nav-link text-light">Messages</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
                                 </a>
 
