@@ -13,7 +13,6 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/all.css">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -21,7 +20,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md shadow-sm bg-primary">
+        <nav class="navbar navbar-expand-md shadow-sm" style="background-color: #1E1E24">
             <div class="container">
                 <a class="navbar-brand d-flex text-light" href="{{ url('/') }}">
                     <!--<div><img src="/svg/freeCodeCampLogo.svg" class="logo pe-3"></div>-->
@@ -42,28 +41,28 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <li class="nav-item pe-3">
+                                    <a class="nav-link  text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item pe-3">
                                     <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             
-                            <li class="nav-item">
+                            <li class="nav-item pe-3">
                                 <a href="/" class="nav-link text-light">Home</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item pe-3">
                                 <a href="/search" class="nav-link text-light">Search</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item pe-3">
                                 <a href="/chat" class="nav-link text-light">Messages</a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown pe-3">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
                                 </a>
@@ -88,7 +87,7 @@
             </div>
         </nav>
 
-        <main class="py-4 bg-light">
+        <main class="py-4" style="background-color: #25262E">
             @yield('content')
         </main>
         

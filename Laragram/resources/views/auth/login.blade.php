@@ -73,8 +73,8 @@
 
 <div class="container">
     <div class="row mt-5">
-        <div class="col-lg-4 bg-white m-auto rounded-top" style="border-top: 3px solid #0d6efd;">
-            <h2 class="text-center pt-3 pb-2">{{ __('Login') }}</h2>
+        <div class="col-lg-4 m-auto rounded-top" style="border-top: 3px solid #BFCDE0; background-color: #1E1E24">
+            <h2 class="text-center pt-3 pb-2 text-light">{{ __('Login') }}</h2>
 
             <form method="POST" action="{{ route('login') }}">
                 @csrf
@@ -101,12 +101,12 @@
                     @enderror
                 </div>
 
-                <div class="row mb-3">
-                    <div class="col-md-6">
+                <div class="row mb-3 ">
+                    <div class="col-md-6 offset-md-4">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                            <label class="form-check-label" for="remember">
+                            <label class="form-check-label text-light" for="remember">
                                         {{ __('Remember Me') }}
                             </label>
                         </div>
@@ -114,10 +114,16 @@
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">{{ __('Register') }}</button>
-                    <p class="text-center mt-2">
-                        Don't have an account? <a href="#">Make a new one here</a>
+                    <button type="submit" class="btn allBtn">{{ __('Register') }}</button>
+                    <p class="text-center mt-2 text-light">
+                        Don't have an account? <a href="{{ route('register') }}" class="text-decoration-none">Make a new one here</a>
                     </p>
+
+                    @if (Route::has('password.request'))
+                        <a class="btn btn-link pb-3 pt-0" href="{{ route('password.request') }}">
+                            {{ __('Forgot Your Password?') }}
+                        </a>
+                    @endif
                 </div>
                 
             </form>

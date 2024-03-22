@@ -30,5 +30,53 @@
 }
 
 main {
-    min-height: 100vh;
+    min-height: 94vh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.cont {
+    width: 30%;
+    background-color: #1E1E24;
+}
+
+.allBtn {
+    background-color: #25262E; /* Set default background color */
+    border-color: #BFCDE0; /* Set default border color */
+    color: white; /* Set default text color */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.allBtn:hover {
+    background-color: #BFCDE0 !important; /* Change background color on hover */
+    border-color: #BFCDE0; /* Change border color on hover */
+    color: black; /* Change text color on hover if needed */
+}
+
+.d-grid a {
+    color: #BFCDE0;
+}
+
+.d-grid a:hover {
+    color: #abb8c9;
+}
+
+.form-check-input:checked {
+    background-color: #BFCDE0;
+    border-color: #BFCDE0;
+    box-shadow: 0 0 0 0.1rem #abb8c9; /* Set box shadow color to #BFCDE0 */
+}
+
+/* Style for the checkbox input when not checked */
+.form-check-input:not(:checked) {
+    box-shadow: 0 0 0 0.1rem #abb8c9; /* Set box shadow color to #BFCDE0 */
+}
+
+.form-check-input {
+    /* Default styles for the checkbox */
+    background-color: #25262E;
+    border-color: #BFCDE0;
 }

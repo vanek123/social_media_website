@@ -92,9 +92,9 @@
 
 <div class="container">
     <div class="row mt-5">
-        <div class="col-lg-4 bg-white m-auto rounded-top" style="border-top: 3px solid #0d6efd;">
-            <h2 class="text-center pt-3">{{ __('Register') }}</h2>
-            <p class="text-center text-muted lead mb-3">It's free and takes a minute</p>
+        <div class="col-lg-4 m-auto rounded-top" style="border-top: 3px solid #BFCDE0; background-color: #1E1E24">
+            <h2 class="text-center text-light pt-3">{{ __('Register') }}</h2>
+            <p class="text-center text-light lead mb-3">It's free and takes a minute</p>
 
             <form method="POST" action="{{ route('register') }}">
                 @csrf
@@ -143,15 +143,17 @@
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">{{ __('Register') }}</button>
-                    <p class="text-cente text-muted mt-2">
+                    <button type="submit" class="btn allBtn">{{ __('Register') }}</button>
+                    <p class="text-center text-light mt-2">
                         When you register by clicking register button, you agree to our 
                         <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>
                     </p>
+                    
+                    <p class="text-center text-light">
+                        Already have an account? <a href="{{ route('login') }}">Login Here</a>
+                    </p>
                 </div>
-                <p class="text-center">
-                    Already have an account? <a href="#">Login Here</a>
-                </p>
+                
             </form>
         </div>  
     </div>
