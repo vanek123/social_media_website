@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container vh-100">
+<div class="container mt-5">
     <div class="d-flex justify-content-center align-items-center h-100">
-        <form action="/profile/{{ $user->id }}" class="shadow p-3 mb-5 bg-white rounded border border-light p-5" enctype="multipart/form-data" method="POST">
+        <form action="/profile/{{ $user->id }}" class="shadow p-3 mb-5 rounded p-5" enctype="multipart/form-data" method="POST" style="background-color: #1E1E24">
             @csrf
             @method('PATCH')
     
-            <div class="row">
+            <div class="row text-light">
                 <div class="col-8 offset-2">
     
                         <h1>Edit Profile</h1>

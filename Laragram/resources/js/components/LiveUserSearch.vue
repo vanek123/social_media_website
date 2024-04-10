@@ -6,10 +6,10 @@
             <p id="search-message" class="search-message">Start typing to search for users.</p>
         </div>
 
-        <div class="card p-3" v-if="results.length > 0">
+        <div class="card p-3 searchResults" v-if="results.length > 0">
             <div class="search-result p-2" v-for="(result, index) in results">
                 <a :href="'/profile/' + result.id"><img :src="result.media" class="rounded-circle w-100" style="max-width: 40px;"></a>
-                <a :href="'/profile/' + result.id" class="ps-3">{{ result.username }}</a>
+                <a :href="'/profile/' + result.id" class="ps-3 text-decoration-none">{{ result.username }}</a>
             </div>
         </div>
     </div>

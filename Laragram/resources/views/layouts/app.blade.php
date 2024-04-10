@@ -21,10 +21,10 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md shadow-sm" style="background-color: #1E1E24">
-            <div class="container">
+            <div class="container p-0">
                 <a class="navbar-brand d-flex text-light" href="{{ url('/') }}">
                     <!--<div><img src="/svg/freeCodeCampLogo.svg" class="logo pe-3"></div>-->
-                    <div class="ps-3" style="padding-top: 2px">Laragram</div>
+                    <div style="padding-top: 2px;">Laragram</div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -62,12 +62,12 @@
                             <li class="nav-item pe-3">
                                 <a href="/chat" class="nav-link text-light">Messages</a>
                             </li>
-                            <li class="nav-item dropdown pe-3">
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-end dropdownDiv" aria-labelledby="navbarDropdown">
                                     <a href="{{ route('profile.show', ['user' => auth()->user()]) }}" class="dropdown-item">My Profile</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

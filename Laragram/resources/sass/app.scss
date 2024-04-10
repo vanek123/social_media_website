@@ -39,7 +39,7 @@ body {
 }
 
 .cont {
-    width: 30%;
+    width: 50%;
     background-color: #1E1E24;
 }
 
@@ -64,6 +64,33 @@ body {
     color: #abb8c9;
 }
 
+.posts a {
+    color: white;
+    text-decoration: none;
+}
+
+.posts a:hover {
+    color: #BFCDE0;
+}
+
+hr {
+    border-color: #BFCDE0;
+}
+
+.dropdownDiv {
+    background-color: #1E1E24;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdownDiv a {
+    color: white;
+}
+
+.dropdownDiv a:hover {
+    background-color: #BFCDE0;
+    color: black;
+}
+
 .form-check-input:checked {
     background-color: #BFCDE0;
     border-color: #BFCDE0;
@@ -79,4 +106,29 @@ body {
     /* Default styles for the checkbox */
     background-color: #25262E;
     border-color: #BFCDE0;
+}
+
+.searchResults {
+    background-color: #1E1E24;
+    color: white;
+}
+
+.searchResults a {
+    color: white;
+}
+
+.searchResults a:hover {
+    color: #BFCDE0;
+}
+
+.navbar-toggler-icon {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: white !important;
+}
+
+.navbar-toggler {
+    border-color: #BFCDE0 !important;
+    box-shadow: none !important;
+    background-color: white;
 }
