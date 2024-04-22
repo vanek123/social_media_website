@@ -40,3 +40,7 @@ Route::get('/profile/{user}/edit', 'App\Http\Controllers\ProfilesController@edit
 Route::patch('/profile/{user}', 'App\Http\Controllers\ProfilesController@update')->name('profile.update');
 
 
+Route::get('dashboard', 'App\Http\Controllers\AdminController@dashboard')->name('admin.dashboard');
+Route::get('users', 'App\Http\Controllers\AdminController@users')->name('admin.users');
+
+

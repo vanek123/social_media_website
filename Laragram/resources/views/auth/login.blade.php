@@ -114,7 +114,7 @@
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn allBtn">{{ __('Register') }}</button>
+                    <button type="submit" class="btn allBtn">{{ __('Login') }}</button>
                     <p class="text-center mt-2 mb-2 text-light">
                         Don't have an account? <a href="{{ route('register') }}">Make a new one here</a>
                     </p>

@@ -11,7 +11,11 @@ class ProfilesController extends Controller
 {
     public function index(User $user)
     {
-        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+        if ($user->isAdmin) {
+            abort(404); // Return a 404 Not Found response
+        }
+
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user->username) : false;
 
         $postCount = Cache::remember('count.posts.' . $user->id, 
         now()->addSeconds(5), 

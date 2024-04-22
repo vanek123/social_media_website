@@ -3,7 +3,7 @@
         <div class="form-group">
             <h4>Type by Username</h4>
             <input type="text" v-model="searchQuery" placeholder="Search the user..." class="form-control">
-            <p id="search-message" class="search-message">Start typing to search for users.</p>
+            <p id="search-message" class="search-message text-light">Start typing to search for users.</p>
         </div>
 
         <div class="card p-3 searchResults" v-if="results.length > 0">
@@ -41,6 +41,7 @@
                         username: user.username,
                         media: user.media
                     }));
+                    console.log('Search results:', this.results);
                 }).catch(error => {
                     console.log(error)
                 })

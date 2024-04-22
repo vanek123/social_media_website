@@ -4,6 +4,7 @@
 <div class="container">
     <!-- User Profile Section -->
     <div class="row rounded" style="background-color: #1E1E24">
+        @if(!$user->isAdmin)
         <!-- Profile Image and Information -->
         <div class="col-md-3 pt-4 pb-4">
             <div class="d-flex justify-content-center">
@@ -34,7 +35,6 @@
                 <div class="pe-3"><strong class=>{{ $postCount }}</strong> posts</div>
                 <div class="pe-3"><strong>{{ $followersCount }}</strong> followers</div> 
                 <div><strong>{{ $followingCount }}</strong> following</div>
-                
             </div>
             
             <div class="">
@@ -52,13 +52,24 @@
             <h4 class="fw-bold text-light text-center">POSTS</h4>
             <hr class="text-light">
         </div>
-        @foreach($user->posts as $post)
-        <div class="col-md-4 pb-4">
-            <a href="/p/{{ $post->id }}">
-                <img src="/storage/{{ $post->media }}" alt="Post Image" class="w-100 shadow-sm rounded border">
-            </a>
-        </div>
-        @endforeach
+        @if($user->posts->isEmpty())
+            <div class="col-md-12 text-light text-center">
+                @if(Auth::check() && Auth::user()->id === $user->id)
+                    <p>You don't have any posts yet.</p>
+                @else
+                    <p>This user doesn't have any posts yet.</p>
+                @endif
+            </div>
+        @else
+            @foreach($user->posts as $post)
+                <div class="col-md-4 pb-4">
+                    <a href="/p/{{ $post->id }}">
+                        <img src="/storage/{{ $post->media }}" alt="Post Image" class="w-100 shadow-sm rounded border">
+                    </a>
+                </div>
+            @endforeach
+        @endif
     </div>
+    @endif
 </div>
 @endsection
