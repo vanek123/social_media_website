@@ -56,11 +56,17 @@
 
             <ul class="logout-mod">
                 <li>
-                    <a href="#">
+                    <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Logout</span>
                     </a>
                 </li>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
 
                 <li>
                     <a href="#">
