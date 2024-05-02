@@ -21,6 +21,7 @@ return new class extends Migration
             $table->boolean('isAdmin')->default(false);
             $table->rememberToken();
             $table->timestamps();
+            $table->tinyInteger('status')->default(1);
         });
     }
 

@@ -40,7 +40,14 @@ Route::get('/profile/{user}/edit', 'App\Http\Controllers\ProfilesController@edit
 Route::patch('/profile/{user}', 'App\Http\Controllers\ProfilesController@update')->name('profile.update');
 
 
-Route::get('dashboard', 'App\Http\Controllers\AdminController@dashboard')->name('admin.dashboard');
-Route::get('users', 'App\Http\Controllers\AdminController@users')->name('admin.users');
+//Route::get('/dashboard', 'App\Http\Controllers\AdminController@dashboard')->name('admin.dashboard');
+//Route::get('/users', 'App\Http\Controllers\AdminController@users')->name('admin.users');
+//Route::get('/users/status/{user_id}/{status_code}', 'App\Http\Controllers\AdminController@updateStatus');
 
+Route::middleware('auth')->group(function(){
+    Route::resource('users', App\Http\Controllers\AdminController::class);
 
+    Route::get('/dashboard', 'App\Http\Controllers\AdminController@dashboard')->name('admin.dashboard');
+    Route::get('/users', 'App\Http\Controllers\AdminController@users')->name('admin.users');
+    Route::get('/users/status/{user_id}/{status_code}', 'App\Http\Controllers\AdminController@updateStatus')->name('users.status.update');
+});

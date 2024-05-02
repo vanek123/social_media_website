@@ -76,6 +76,12 @@
         <div class="col-lg-4 m-auto rounded-top" style="border-top: 3px solid #BFCDE0; background-color: #1E1E24">
             <h2 class="text-center pt-3 pb-2 text-light">{{ __('Login') }}</h2>
 
+            <div class="text-center text-danger pb-3">
+                @if (session('error'))
+                    <span><strong>{{ session('error') }}</strong></span>
+                @endif
+            </div>
+            
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
