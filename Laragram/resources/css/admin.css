@@ -23,12 +23,12 @@
     /* ====== Transition ====== */
     --tran-05: all 0.5s ease;
     --tran-03: all 0.3s ease;
-    --tran-03: all 0.2s ease;
+    --tran-02: all 0.2s ease;
 }
 
 body{
     min-height: 100vh;
-    background-color: var(--primary-color);
+    background-color: var(--panel-color);
 }
 body.dark{
     --primary-color: #3A3B3C;
@@ -41,6 +41,8 @@ body.dark{
     --box2-color: #3A3B3C;
     --box3-color: #3A3B3C;
     --title-icon-color: #CCC;
+
+    background-color: var(--panel-color);
 }
 /* === Custom Scroll Bar CSS === */
 ::-webkit-scrollbar {
@@ -342,6 +344,7 @@ nav.close ~ .dashboard .top{
     align-items: center;
     width: 100%;
 }
+
 .activity .activity-data{
     display: flex;
 }
@@ -358,9 +361,28 @@ nav.close ~ .dashboard .top{
 .activity-data .data .data-list{
     font-size: 18px;
     font-weight: 400;
-    margin-top: 20px;
     white-space: nowrap;
     color: var(--text-color);
+}
+
+.activity-data .data.names .data-list{
+    margin-top: 20px;
+}
+
+.activity-data .data.email .data-list{
+    margin-top: 20px;
+}
+
+.activity-data .data.joined .data-list{
+    margin-top: 20px;
+}
+
+.activity-data .data.type .data-list{
+    margin-top: 20px;
+}
+
+.activity-data .data.status .data-list{
+    margin-top: 20px;
 }
 
 @media (max-width: 1000px) {
@@ -415,7 +437,7 @@ nav.close ~ .dashboard .top{
 }
 @media (max-width: 560px) {
     .dash-content .boxes .box{
-        width: 100% ;
+        width: 100%;
     }
 }
 @media (max-width: 400px) {

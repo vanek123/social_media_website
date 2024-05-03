@@ -48,11 +48,15 @@
                     @foreach($users as $user)
                     @if($user->status == 1)
                     <span class="data-list">
-                        <a href="{{ route('users.status.update', ['user_id' => $user->id, 'status_code' => 0])}}">Block</a>
+                        <div class="buttons">
+                            <a href="{{ route('users.status.update', ['user_id' => $user->id, 'status_code' => 0])}}" class="btn btn-danger">Block</a>
+                        </div>
                     </span>
                     @else
                     <span class="data-list">
-                        <a href="{{ route('users.status.update', ['user_id' => $user->id, 'status_code' => 1])}}">Unblock</a>
+                        <div>
+                            <a href="{{ route('users.status.update', ['user_id' => $user->id, 'status_code' => 1])}}" class="btn btn-success">Unblock</a>
+                        </div>
                     </span>
                     @endif
                     @endforeach
