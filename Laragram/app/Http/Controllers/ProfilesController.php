@@ -89,6 +89,7 @@ class ProfilesController extends Controller
         $currentUserId = auth()->id();
         $users = User::where('username', 'like', "%$query%")
                     ->where('id', '!=', $currentUserId) // Exclude the logged-in user
+                    ->where('isAdmin', false)
                     ->with('profile')->get();
         $usersWithProfileImage = $users->map(function ($user) {
             return [
@@ -103,6 +104,7 @@ class ProfilesController extends Controller
     public function allUsers() {
         $currentUserId = auth()->id();
         $users = User::where('id', '!=', $currentUserId) // Exclude the logged-in user
+                    ->where('isAdmin', false)
                     ->with('profile')->get();
         $usersWithProfileImage = $users->map(function ($user) {
             $profileImage = $user->profile ? $user->profile->profileImage() : null;
