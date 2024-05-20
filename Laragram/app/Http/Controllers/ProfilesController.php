@@ -86,7 +86,10 @@ class ProfilesController extends Controller
     
     public function find($query) 
     {
-        $users = User::where('username', 'like', "%$query%")->with('profile')->get();
+        $currentUserId = auth()->id();
+        $users = User::where('username', 'like', "%$query%")
+                    ->where('id', '!=', $currentUserId) // Exclude the logged-in user
+                    ->with('profile')->get();
         $usersWithProfileImage = $users->map(function ($user) {
             return [
                 'id' => $user->id,
@@ -98,16 +101,18 @@ class ProfilesController extends Controller
     }
 
     public function allUsers() {
-            $users = User::with('profile')->get(); // Retrieve all users with their profiles
-            $usersWithProfileImage = $users->map(function ($user) {
-                $profileImage = $user->profile ? $user->profile->profileImage() : null;
-                return [
-                    'id' => $user->id,
-                    'username' => $user->username,
-                    'media' => $profileImage,
-                ];
-            });
-            return response()->json($usersWithProfileImage);
+        $currentUserId = auth()->id();
+        $users = User::where('id', '!=', $currentUserId) // Exclude the logged-in user
+                    ->with('profile')->get();
+        $usersWithProfileImage = $users->map(function ($user) {
+            $profileImage = $user->profile ? $user->profile->profileImage() : null;
+            return [
+                'id' => $user->id,
+                'username' => $user->username,
+                'media' => $profileImage,
+            ];
+        });
+        return response()->json($usersWithProfileImage);
     }
 
     /*public function find(Request $request)
