@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ Route::get('/email', function () {
 Route::post('p/{post}/comments', 'App\Http\Controllers\CommentsController@store')->name('posts.comments.store');
 Route::delete('p/{post}/comments/{id}', 'App\Http\Controllers\CommentsController@destroy')->name('posts.comments.destroy');
 
-Route::post('follow/{user}', 'App\Http\Controllers\FollowsController@store');
+Route::post('follow/{user}', 'App\Http\Controllers\FollowsController@store')->name('profile.follow');
 
 Route::get('/', 'App\Http\Controllers\PostsController@index')->name('posts.index');
 Route::get('/p/create', 'App\Http\Controllers\PostsController@create');
@@ -34,6 +35,7 @@ Route::get('/p/{post}', 'App\Http\Controllers\PostsController@show')->name('post
 Route::delete('/p/{post}', 'App\Http\Controllers\PostsController@destroy')->name('posts.destroy');
 
 Route::get('/search', 'App\Http\Controllers\ProfilesController@search')->name('profile.search');
+Route::get('/allUsers', 'App\Http\Controllers\ProfilesController@allUsers');
 Route::get('/search/{query}', 'App\Http\Controllers\ProfilesController@find')->name('profile.find');
 Route::get('/profile/{user}', 'App\Http\Controllers\ProfilesController@index')->name('profile.show');
 Route::get('/profile/{user}/edit', 'App\Http\Controllers\ProfilesController@edit')->name('profile.edit');
@@ -51,3 +53,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/users', 'App\Http\Controllers\AdminController@users')->name('admin.users');
     Route::get('/users/status/{user_id}/{status_code}', 'App\Http\Controllers\AdminController@updateStatus')->name('users.status.update');
 });
+
+Route::middleware(['auth', 'verified'])->get('/chat', function() {
+    return view('chat.index');
+})->name('chat');
