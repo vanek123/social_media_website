@@ -117,45 +117,6 @@ class ProfilesController extends Controller
         return response()->json($usersWithProfileImage);
     }
 
-    /*public function find(Request $request)
-    {
-
-        if ($request->ajax()) {
-        $data = User::where('username', 'LIKE', '%' . $request->search . '%')->get();
-
-        $output = '';
-
-        if (count($data) > 0) {
-            $output = '<div class="row">';
-
-            foreach ($data as $row) {
-                $output .= '<div class="col-md-4 mt-4">
-                                <div class="card mb-4">
-                                    <div class="card-body text-center">
-                                        <a href="/profile/' . $row->id . '">
-                                            <img src="' . $row->profile->profileImage() . '" class="rounded-circle mb-3" style="max-width: 60px;">
-                                        </a>
-                                        <h5 class="card-title">
-                                            <a href="' . route('profile.show', ['user' => $row->id]) . '">
-                                                ' . $row->username . '
-                                            </a>
-                                        </h5>
-                                        <a href="' . route('profile.follow', ['user' => $row->id]) . '" class="btn btn-primary btn-sm">Follow</a>
-                                        <a href="" class="btn btn-secondary btn-sm">Message</a>
-                                    </div>
-                                </div>
-                            </div>';
-            }
-
-            $output .= '</div>';
-        } else {
-            $output .= "No Results Found";
-        }
-
-        return $output;
-        }
-    }*/
-
 }
 
 
