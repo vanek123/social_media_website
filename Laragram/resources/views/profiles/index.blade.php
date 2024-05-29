@@ -64,7 +64,7 @@
             @foreach($user->posts as $post)
                 <div class="col-md-4 pb-4">
                     <a href="/p/{{ $post->id }}">
-                        <img src="/storage/{{ $post->media }}" alt="Post Image" class="w-100 shadow-sm rounded border">
+                        <img src="/storage/{{ $post->media }}" alt="Post Image" class="w-100 shadow-sm rounded">
                     </a>
                 </div>
             @endforeach

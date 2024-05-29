@@ -9,18 +9,18 @@
         <div v-if="results.length > 0 || !searchQuery">
             <div class="row">
                 <div class="col-md-4" v-for="(result, index) in results" :key="index">
-                    <div class="card mb-4">
+                    <div class="card mb-4t" style="background-color: #1E1E24">
                         <div class="card-body text-center">
                             <a :href="'/profile/' + result.id">
                                 <img :src="result.media" class="rounded-circle mb-3" style="max-width: 60px;">
                             </a>
                             <h5 class="card-title">
-                                <a :href="'/profile/' + result.id" class="text-decoration-none">
+                                <a :href="'/profile/' + result.id" class="text-decoration-none text-light">
                                     {{ result.username }}
                                 </a>
                             </h5>
                             <!--<follow-button :user-id="result.id" :follows="result.follows"></follow-button>-->
-                            <a :href="'/message/' + result.id" class="btn btn-secondary btn-sm ms-2">Message</a>
+                            <a :href=" 'chat/' + result.id" class="btn allBtn">Message</a>
                         </div>
                     </div>
                 </div>

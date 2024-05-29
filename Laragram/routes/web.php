@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/users/status/{user_id}/{status_code}', 'App\Http\Controllers\AdminController@updateStatus')->name('users.status.update');
 });
 
-Route::middleware(['auth', 'verified'])->get('/chat', function() {
-    return view('chat.index');
-})->name('chat');
+Route::middleware(['auth', 'verified'])->get('/chats', [ChatController::class, 'index'])->name('chats');
+Route::middleware(['auth', 'verified'])->get('/chat/{id}', [ChatController::class, 'chatWithUser'])->name('chatWithUser');
+Route::middleware(['auth', 'verified'])->post('/send_message', [ChatController::class, 'send_message'])->name('chat.send_message');
+Route::middleware(['auth', 'verified'])->post('/refresh_messages', [ChatController::class, 'refresh_messages'])->name('refresh_messages');

@@ -55,9 +55,9 @@ class ProfilesController extends Controller
         $this->authorize('update', $user->profile);
 
         $data = request()->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'url' => 'url',
+            'title' => 'nullable',
+            'description' => 'nullable',
+            'url' => 'nullable|url',
             'media' => 'mimetypes:image/jpeg,image/png',
         ]);
 

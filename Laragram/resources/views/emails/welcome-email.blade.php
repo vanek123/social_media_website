@@ -4,6 +4,6 @@
 Thank you for creating an account on Laragram. Enjoy!
 
 All the best, <br>
-Ivans
+Laragram development team
 
 </x-mail::message>

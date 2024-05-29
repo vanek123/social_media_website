@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/userSearch.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 </head>
 <body>
@@ -60,7 +60,7 @@
                                 <a href="/search" class="nav-link text-light">Search</a>
                             </li>
                             <li class="nav-item pe-3">
-                                <a href="/chat" class="nav-link text-light">Messages</a>
+                                <a href="{{ route('chats') }}" class="nav-link text-light">Messages</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
