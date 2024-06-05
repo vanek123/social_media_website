@@ -1,0 +1,143 @@
+.custom-container {
+    display: flex;
+    height: 80vh;
+    margin-top: 20px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.custom-sidebar {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-main {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #1E1E24;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.custom-card-body {
+    flex-grow: 1;
+    padding: 15px;
+    background-color: #1E1E24;
+}
+
+.custom-card-header {
+    display: flex;
+    padding: 15px;
+    background-color: #1E1E24;
+    border-bottom: 1px solid #ccc;
+}
+
+.custom-card-footer {
+    padding: 15px;
+    background-color: #1E1E24;
+    border-top: 1px solid #ccc;
+}
+
+.custom-card-title {
+    margin-bottom: 15px;
+}
+
+.custom-search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #25262E;
+    color: #fff;
+}
+
+.custom-user-list {
+    list-style: none;
+    padding: 0;
+    overflow-y: auto;
+    max-height: calc(100% - 60px); /* Adjust based on other content */
+}
+
+.custom-user-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    background-color: #25262E;
+    display: flex;
+    align-items: center;
+}
+
+.custom-user-item.custom-selected-user {
+    background-color: #25262E;
+}
+
+.custom-user-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+}
+
+.custom-user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.custom-chat-messages {
+    flex-grow: 1;
+    background-color: #25262E;
+    overflow-y: auto;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.custom-chat-input {
+    display: flex;
+    padding: 10px;
+    background-color: #1E1E24;
+}
+
+.custom-message-form {
+    display: flex;
+    flex: 1;
+}
+
+.custom-message-form textarea {
+    flex: 1;
+    resize: none;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #25262E;
+    color: #fff;
+}
+
+.custom-send-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.custom-send-button:hover {
+    background-color: #0056b3;
+}
+
+.custom-message-avatar {
+    max-width: 40px;
+    border-radius: 50%;
+}

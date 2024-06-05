@@ -58,3 +58,4 @@ Route::middleware(['auth', 'verified'])->get('/chats', [ChatController::class, '
 Route::middleware(['auth', 'verified'])->get('/chat/{id}', [ChatController::class, 'chatWithUser'])->name('chatWithUser');
 Route::middleware(['auth', 'verified'])->post('/send_message', [ChatController::class, 'send_message'])->name('chat.send_message');
 Route::middleware(['auth', 'verified'])->post('/refresh_messages', [ChatController::class, 'refresh_messages'])->name('refresh_messages');
+Route::middleware(['auth', 'verified'])->post('/chat_search', [ChatController::class, 'chat_search'])->name('chat.chat_search');

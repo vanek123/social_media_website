@@ -9,7 +9,7 @@
         <div v-if="results.length > 0 || !searchQuery">
             <div class="row">
                 <div class="col-md-4" v-for="(result, index) in results" :key="index">
-                    <div class="card mb-4t" style="background-color: #1E1E24">
+                    <div class="card mb-4" style="background-color: #1E1E24">
                         <div class="card-body text-center">
                             <a :href="'/profile/' + result.id">
                                 <img :src="result.media" class="rounded-circle mb-3" style="max-width: 60px;">
@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <div class="col-12" v-else>
+        <div class="col-12 text-light" v-else>
             <p>No Results Found</p>
         </div>
     </div>
