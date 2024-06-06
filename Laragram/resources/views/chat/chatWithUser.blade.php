@@ -127,18 +127,22 @@
                             @endphp
 
                             @if ($message['message_sender'] == $selectedUsername)
-                                <div class="{{ $message['message_sender'] == auth()->id() ? 'text-right' : 'text-left' }}">
-                                    <img src="{{$selectedUserImage}}" class="custom-message-avatar">
-                                    <strong>{{$message['message_sender']}}</strong>
-                                    <p>{{ $message_sent}}</p> 
-                                    <p>{{ $message['content'] }}</p>
+                                <div class="custom-message custom-message-sender">
+                                    <div class="custom-message-content">
+                                        <img src="{{$selectedUserImage}}" class="custom-message-avatar">
+                                        <strong>{{$message['message_sender']}}</strong>
+                                        <p>{{ $message_sent}}</p> 
+                                        <p>{{ $message['content'] }}</p>
+                                    </div>
                                 </div>
                             @else
-                                <div class="{{ $message['message_sender'] == auth()->id() ? 'text-right' : 'text-left' }}">
-                                    <img src="{{$authUserImage}}" class="custom-message-avatar">
-                                    <strong>{{$message['message_sender']}}</strong> 
-                                    <p class="mb-2">{{ $message_sent }}</p>
-                                    <p>{{ $message['content'] }}</p>
+                                <div class="custom-message custom-message-receiver">
+                                    <div class="custom-message-content">
+                                        <img src="{{$authUserImage}}" class="custom-message-avatar">
+                                        <strong>{{$message['message_sender']}}</strong> 
+                                        <p>{{ $message_sent }}</p>
+                                        <p>{{ $message['content'] }}</p>
+                                    </div>
                                 </div>
                             @endif
                         @endforeach
@@ -251,5 +255,61 @@
 
 
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('user-search');
+        const userList = document.querySelector('.custom-user-list');
+    
+        searchInput.addEventListener('input', function() {
+            const query = searchInput.value;
+    
+            fetch('/chat_search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({ query: query })
+            })
+            .then(response => response.json())
+            .then(data => {
+                userList.innerHTML = '';
+    
+                if (data.length > 0) {
+                    data.forEach(user => {
+                        const userItem = document.createElement('li');
+                        userItem.classList.add('custom-user-item');
+                        
+                        const userLink = document.createElement('a');
+                        userLink.href = `/chat/${user.id}`;
+                        userLink.classList.add('custom-user-link');
+    
+                        const userAvatar = document.createElement('img');
+                        userAvatar.src = user.profile_image; // Assuming a default image if none is provided
+                        userAvatar.alt = user.username;
+                        userAvatar.classList.add('custom-user-avatar');
+    
+                        const userInfo = document.createElement('div');
+                        const userName = document.createElement('p');
+                        userName.textContent = user.username;
+    
+                        userInfo.appendChild(userName);
+                        userLink.appendChild(userAvatar);
+                        userLink.appendChild(userInfo);
+                        userItem.appendChild(userLink);
+    
+                        userList.appendChild(userItem);
+                    });
+                } else {
+                    const noUserItem = document.createElement('li');
+                    noUserItem.classList.add('custom-user-item');
+                    noUserItem.textContent = 'No users found';
+                    userList.appendChild(noUserItem);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+    </script>
 </script>
 @endsection

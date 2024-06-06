@@ -76,7 +76,7 @@
             <div class="custom-card-header">
                 <h2 class="custom-card-title">Chat</h2>
             </div>
-            <div class="custom-card-body custom-chat-messages" id="chat_window">
+            <div class="custom-card-body2 custom-chat-messages2" id="chat_window">
                 <p>Choose user to start conversation</p>
             </div>
             <div class="custom-card-footer custom-chat-input">
@@ -85,4 +85,61 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('user-search');
+        const userList = document.querySelector('.custom-user-list');
+    
+        searchInput.addEventListener('input', function() {
+            const query = searchInput.value;
+    
+            fetch('/chat_search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({ query: query })
+            })
+            .then(response => response.json())
+            .then(data => {
+                userList.innerHTML = '';
+    
+                if (data.length > 0) {
+                    data.forEach(user => {
+                        const userItem = document.createElement('li');
+                        userItem.classList.add('custom-user-item');
+                        
+                        const userLink = document.createElement('a');
+                        userLink.href = `/chat/${user.id}`;
+                        userLink.classList.add('custom-user-link');
+    
+                        const userAvatar = document.createElement('img');
+                        userAvatar.src = user.profile_image; // Assuming a default image if none is provided
+                        userAvatar.alt = user.username;
+                        userAvatar.classList.add('custom-user-avatar');
+    
+                        const userInfo = document.createElement('div');
+                        const userName = document.createElement('p');
+                        userName.textContent = user.username;
+    
+                        userInfo.appendChild(userName);
+                        userLink.appendChild(userAvatar);
+                        userLink.appendChild(userInfo);
+                        userItem.appendChild(userLink);
+    
+                        userList.appendChild(userItem);
+                    });
+                } else {
+                    const noUserItem = document.createElement('li');
+                    noUserItem.classList.add('custom-user-item');
+                    noUserItem.textContent = 'No users found';
+                    userList.appendChild(noUserItem);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+    </script>
 @endsection

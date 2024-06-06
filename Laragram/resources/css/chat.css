@@ -23,8 +23,14 @@
     flex-direction: column;
     height: 100%;
     background-color: #1E1E24;
-    border-radius: 5px;
+    /*border-radius: 5px;*/
     overflow: hidden;
+}
+
+.custom-card-body {
+    flex-grow: 1;
+    padding: 15px;
+    background-color: #1E1E24;
 }
 
 .custom-card-body {
@@ -102,6 +108,20 @@
     border-bottom: 1px solid #ccc;
 }
 
+.custom-chat-messages2 {
+    flex-grow: 1;
+    background-color: #25262E;
+    overflow-y: auto;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.custom-chat-messages2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .custom-chat-input {
     display: flex;
     padding: 10px;
@@ -137,7 +157,36 @@
     background-color: #0056b3;
 }
 
+.custom-message-sender {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.custom-message-receiver {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .custom-message-avatar {
     max-width: 40px;
     border-radius: 50%;
+}
+
+.custom-message-sender .custom-message-avatar,
+.custom-message-receiver .custom-message-avatar {
+    margin-right: 10px;
+}
+
+.custom-message-content {
+    background-color: #1E1E24;
+    padding: 10px;
+    border-radius: 5px;
+    word-wrap: break-word; /* Ensure long messages wrap */
+    margin-bottom: 20px;
+    width: 50%;
+    
 }

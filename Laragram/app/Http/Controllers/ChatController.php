@@ -125,7 +125,27 @@ class ChatController extends Controller
         return response()->json();
     }
 
-    public function chat_search() {
+    public function chat_search(Request $request)
+    {
+        $query = $request->input('query');
+        $authUser = auth()->user();
         
+        if (empty($query)) {
+            // Return users with whom the authenticated user has had conversations
+            $users = $this->getConversationUsers($authUser->username);
+        } else {
+            // Search users by username, excluding the authenticated user and the admin
+            $users = User::where('username', 'like', '%' . $query . '%')
+                         ->where('username', '!=', $authUser->username)
+                         ->where('isAdmin', '!=', '1')
+                         ->get();
+        }
+
+        $users = $users->map(function ($user) {
+            $user->profile_image = $user->profile->profileImage() ?? '/storage/profile/Wuslb5XmCz5F1cHQMHhHAlqEKXEhlJta1Uv0xDze.jpg';
+            return $user;
+        });
+
+        return response()->json($users);
     }
 }
