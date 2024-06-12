@@ -65,4 +65,8 @@
         </div>
     </div>
 
+    <div class="export-button">
+        <a href="{{ route('admin.export_users_pdf') }}" class="btn allBtn">Export as PDF</a>
+    </div>
+
 @endsection

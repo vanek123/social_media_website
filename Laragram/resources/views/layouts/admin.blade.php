@@ -36,24 +36,6 @@
                         <span class="link-name">Users</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="uil uil-chart"></i>
-                        <span class="link-name">Analytics</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="uil uil-thumbs-up"></i>
-                        <span class="link-name">Like</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="uil uil-comments"></i>
-                        <span class="link-name">Comments</span>
-                    </a>
-                </li>
             </ul>
 
             <ul class="logout-mode">
