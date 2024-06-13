@@ -106,16 +106,6 @@
                         </p>
                     @endif
         
-                    <!--@foreach($post->comments as $comment)
-                    <p>    
-                        <span class="fw-bold">
-                            <a href="/profile/{{ $post->user->id }}">
-                                <span class="text-dark">{{ $comment->user->username}}</span>
-                           </a> 
-                        </span>
-                            {{ $comment->comment }}    
-                    </p>
-                    @endforeach-->
                 </div>
             @endforeach
         
