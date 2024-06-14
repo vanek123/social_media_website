@@ -21,9 +21,6 @@ app.component('follow-button', ExampleComponent);
 import LiveUserSearch from './components/LiveUserSearch.vue';
 app.component('live-user-search', LiveUserSearch);
 
-import AdminLiveUserSearch from './components/AdminLiveUserSearch.vue';
-app.component('admin-search', AdminLiveUserSearch);
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

@@ -403,6 +403,10 @@ nav.close ~ .dashboard .top{
     align-items: center;
 }
 
+.export-button2 {
+    margin-top: 20px;
+}
+
 .allBtn {
     background-color: var(--panel-color); /* Set default background color */
     border-color: var(--black-light-color); /* Set default border color */

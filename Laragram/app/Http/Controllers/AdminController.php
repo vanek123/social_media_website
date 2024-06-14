@@ -118,21 +118,4 @@ class AdminController extends Controller
     // Output PDF as download
     $mpdf->Output('dashboard_statistics.pdf', 'D');
     }
-
-    public function find($query) 
-    {
-        $currentUserId = auth()->id();
-        $users = User::where('username', 'like', "%$query%")
-                    ->where('id', '!=', $currentUserId) // Exclude the logged-in user
-                    ->where('isAdmin', false)
-                    ->with('profile')->get();
-        $usersWithProfileImage = $users->map(function ($user) {
-            return [
-                'id' => $user->id,
-                'username' => $user->username,
-                'media' => $user->profile->profileImage(),
-            ];
-        });
-        return response()->json($usersWithProfileImage);
-    }
 }
