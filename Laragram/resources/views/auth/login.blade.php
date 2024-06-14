@@ -121,15 +121,9 @@
 
                 <div class="d-grid">
                     <button type="submit" class="btn allBtn">{{ __('Login') }}</button>
-                    <p class="text-center mt-2 mb-2 text-light">
+                    <p class="text-center mt-3 mb-3 text-light">
                         Don't have an account? <a href="{{ route('register') }}">Make a new one here</a>
                     </p>
-
-                    @if (Route::has('password.request'))
-                        <a class="pb-3 pt-0 text-center" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
-                        </a>
-                    @endif
                 </div>
                 
             </form>
