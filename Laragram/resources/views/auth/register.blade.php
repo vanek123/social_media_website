@@ -144,12 +144,8 @@
 
                 <div class="d-grid">
                     <button type="submit" class="btn allBtn">{{ __('Register') }}</button>
-                    <p class="text-center text-light mt-2">
-                        When you register by clicking register button, you agree to our 
-                        <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>
-                    </p>
                     
-                    <p class="text-center text-light">
+                    <p class="text-center text-light mt-3">
                         Already have an account? <a href="{{ route('login') }}">Login Here</a>
                     </p>
                 </div>

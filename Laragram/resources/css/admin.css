@@ -345,6 +345,11 @@ nav.close ~ .dashboard .top{
     width: 100%;
 }
 
+.activity-data {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
 .activity .activity-data{
     display: flex;
 }
@@ -396,10 +401,6 @@ nav.close ~ .dashboard .top{
 .activity-data .data.status .data-list {
     display: flex;
     align-items: center;
-}
-
-.export-button {
-    margin-top: 20px;
 }
 
 .allBtn {

@@ -9,8 +9,12 @@ use App\Models\User;
 
 class CommentsController extends Controller
 {
-    public function store(Post $post) 
+    public function store(Post $post, Request $request) 
     {
+        $request->validate([
+            'comment' => 'required|string|max:255', // Adjust max length as per your needs
+        ]);
+
         $user = auth()->user();
 
         $comment = new Comment();

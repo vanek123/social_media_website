@@ -58,8 +58,14 @@
 
             <form action="{{ route("posts.comments.store", $post->id) }}" method="post" class="mt-auto">
                 @csrf
+
                 <div class="form-group mt-auto">
                     <textarea name="comment" class="form-control mb-2" placeholder="Leave a comment"></textarea>
+                    @error('comment')
+                        <div class="invalid-feedback mb-1" style="display: block;">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     <div class="d-flex justify-content-between">
                         <button type="submit" class="btn btn-primary">Add Comment</button>
                     </div>

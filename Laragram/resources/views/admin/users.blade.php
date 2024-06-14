@@ -4,11 +4,7 @@
 
     <div class="top">
         <i class="uil uil-bars sidebar-toggle"></i>
-        <div class="search-box">
-            <i class="uil uil-search"></i>
-            <input type="text" placeholder="Search here...">
-        </div>
-        
+        <admin-search></admin-search>
         <img src="{{auth()->user()->profile->profileImage()}}" alt="">
     </div>
 
@@ -54,7 +50,7 @@
                     </span>
                     @else
                     <span class="data-list">
-                        <div>
+                        <div class="buttons">
                             <a href="{{ route('users.status.update', ['user_id' => $user->id, 'status_code' => 1])}}" class="btn btn-success">Unblock</a>
                         </div>
                     </span>

@@ -6,7 +6,7 @@
             <p id="search-message" class="search-message text-light">Start typing to search for users.</p>
         </div>
 
-        <div v-if="results.length > 0 || !searchQuery">
+        <div class="scrollable-content" v-if="results.length > 0 || !searchQuery">
             <div class="row">
                 <div class="col-md-4" v-for="(result, index) in results" :key="index">
                     <div class="card mb-4" style="background-color: #1E1E24">
@@ -68,3 +68,22 @@
         }
     }
 </script>
+
+<style scoped>
+    .scrollable-content {
+        max-height: 700px; /* Adjust the height as needed */
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #25262E;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #f1f1f1;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+</style>

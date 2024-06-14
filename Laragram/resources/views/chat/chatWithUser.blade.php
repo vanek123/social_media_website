@@ -204,7 +204,7 @@
             },
 
             error: function(response) {
-                alert('error');
+                alert('Message cannot be empty!');
             }
         });
     });

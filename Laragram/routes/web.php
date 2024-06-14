@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/users/status/{user_id}/{status_code}', 'App\Http\Controllers\AdminController@updateStatus')->name('users.status.update');
     Route::get('/export_users_pdf', [App\Http\Controllers\AdminController::class, 'exportUsersPdf'])->name('admin.export_users_pdf');
     Route::get('/export_dashboard_pdf', [App\Http\Controllers\AdminController::class, 'exportDashboardPdf'])->name('admin.export_dashboard_pdf');
+    Route::get('/users/search/{query}', 'App\Http\Controllers\AdminController@find')->name('admin.find_users');
 });
 
 Route::middleware(['auth', 'verified'])->get('/chats', [ChatController::class, 'index'])->name('chats');

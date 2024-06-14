@@ -1,34 +1,47 @@
 <template>
-    <div class="container">
-        <div class="form-group">
-            <h4>Type by Username</h4>
-            <input type="text" v-model="searchQuery" placeholder="Search the user..." class="form-control">
-            <p id="search-message" class="search-message text-light">Start typing to search for users.</p>
+    <div>
+        <div class="search-box">
+            <i class="uil uil-search"></i>
+            <input type="text" placeholder="Search here...">
         </div>
 
-        <div v-if="results.length > 0 || !searchQuery">
-            <div class="row">
-                <div class="col-md-4" v-for="(result, index) in results" :key="index">
-                    <div class="card mb-4" style="background-color: #1E1E24">
-                        <div class="card-body text-center">
-                            <a :href="'/profile/' + result.id">
-                                <img :src="result.media" class="rounded-circle mb-3" style="max-width: 60px;">
-                            </a>
-                            <h5 class="card-title">
-                                <a :href="'/profile/' + result.id" class="text-decoration-none text-light">
-                                    {{ result.username }}
-                                </a>
-                            </h5>
-                            <!--<follow-button :user-id="result.id" :follows="result.follows"></follow-button>-->
-                            <a :href=" 'chat/' + result.id" class="btn allBtn">Message</a>
-                        </div>
+        <div class="dash-content">
+            <div class="activity">
+                <div class="title">
+                    <i class="uil uil-users-alt"></i>
+                    <span class="text">Users</span>
+                </div>
+                <div class="activity-data" v-if="results.length > 0">
+                    <div class="data names">
+                        <span class="data-title">Name</span>
+                        <span v-for="(result, index) in results" :key="index" class="data-list">{{ result.name }}</span>
+                    </div>
+                    <div class="data email">
+                        <span class="data-title">Username</span>
+                        <span v-for="(result, index) in results" :key="index" class="data-list">{{ result.username }}</span>
+                    </div>
+                    <div class="data joined">
+                        <span class="data-title">Email</span>
+                        <span v-for="(result, index) in results" :key="index" class="data-list">{{ result.email }}</span>
+                    </div>
+                    <div class="data type">
+                        <span class="data-title">Joined</span>
+                        <span v-for="(result, index) in results" :key="index" class="data-list">{{ result.created_at }}</span>
+                    </div>
+                    <div class="data status">
+                        <span class="data-title">Status</span>
+                        <span v-for="(result, index) in results" :key="index" class="data-list">
+                            <div class="buttons">
+                                <a v-if="result.status == 1" :href="`/admin/users/status/update/${result.id}/0`" class="btn btn-danger">Block</a>
+                                <a v-else :href="`/admin/users/status/update/${result.id}/1`" class="btn btn-success">Unblock</a>
+                            </div>
+                        </span>
                     </div>
                 </div>
+                <div class="col-12 text-light" v-else>
+                    <p>No Results Found</p>
+                </div>
             </div>
-        </div>
-
-        <div class="col-12 text-light" v-else>
-            <p>No Results Found</p>
         </div>
     </div>
 </template>
@@ -47,7 +60,7 @@
         },
         methods: {
             getResults() {
-                let url = this.searchQuery ? `/search/${this.searchQuery}` : '/allUsers';
+                let url = this.searchQuery ? `users/search/${this.searchQuery}` : '/users';
                 axios.get(url)
                     .then(response => {
                         this.results = response.data.map(user => ({
